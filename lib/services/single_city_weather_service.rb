@@ -37,6 +37,10 @@ class SingleCityWeather
   def get_visibility
    @city["visibility"]
   end
+  
+  def get_name
+   @city["name"]
+  end
 
   def sys_keys
     keys = []
