@@ -44,11 +44,7 @@ describe "OpenWeather API test" do
     end
 
     it "should return a city name - London" do
-      expect(@city["name"]).to eql "London"
-    end
-
-    it "should return a city name - London" do
-      expect(@city.get_visibility).to be_a Integer
+      expect(@city.get_name).to eql "London"
     end
 
   end
