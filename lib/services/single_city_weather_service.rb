@@ -10,11 +10,12 @@ class SingleCityWeather
 
   def initialize
     @api_key = "0cc43960f2a60b82a42b7cf83d2d2fe3"
+    @city = JSON.parse(self.class.get("London&appid=#{@api_key}").body)
   end
 
   def get_response
     city = Faker::Address.city
-    @city = JSON.parse(self.class.get("London&appid=#{@api_key}").body)
+    @city
   end
 
   def print_result
@@ -25,4 +26,27 @@ class SingleCityWeather
     @city["weather"]
   end
 
+  def get_coords
+    values = []
+    @city["coord"].each do |key, value|
+     values.push(value)
+    end
+    values
+  end
+
+  def get_visibility
+   @city["visibility"]
+  end
+
+  def sys_keys
+    keys = []
+    @city["sys"].each do |key, value|
+     keys.push(key)
+    end
+    keys
+  end
+
 end
+
+# now = SingleCityWeather.new
+# puts now.get_coords

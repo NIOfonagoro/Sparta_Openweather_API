@@ -1,4 +1,5 @@
 require_relative "services/single_city_weather_service.rb"
+require_relative "services/sixteen_day_forecast_service.rb"
 
 class OpenweatherAPI
 
@@ -12,5 +13,7 @@ superClass = OpenweatherAPI.new
 
 city = superClass.single_city_weather
 
-city.get_response
-city.print_result
+
+
+values = []
+city.get_coords
